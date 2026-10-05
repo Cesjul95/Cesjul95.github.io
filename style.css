@@ -225,3 +225,10 @@ h2.rv.in { clip-path: inset(-10% 0 -10% 0); transform: none; }
   .rv, h2.rv, .laptop.rv .lid, .monitor.rv, .phone.rv, .stage.phones .phone:nth-child(2).rv { opacity: 1; transform: none; filter: none; clip-path: none; transition: none; }
   .scene i { transition: none; }
 }
+
+/* Coming back while scrolling up: start above instead of below.
+   The .in rules are restated after so the revealed state always wins. */
+.rv.up, .device.rv.up, .stage.phones .phone.rv.up { transform: translateY(-44px); }
+h2.rv.up { clip-path: inset(100% 0 0 0); transform: translateY(-24px); }
+.rv.in, .device.rv.in, .stage.phones .phone.rv.in { opacity: 1; transform: none; filter: none; }
+h2.rv.in { clip-path: inset(-10% 0 -10% 0); transform: none; }

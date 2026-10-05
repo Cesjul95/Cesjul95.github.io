@@ -148,24 +148,31 @@ const hasIO = "IntersectionObserver" in window;
 const RV = "main > section:not(.hero) > h2, main > section:not(.hero) > p, main > section:not(.hero) > h3, .filters, .card, .mini, .timeline li, .plain li, .device";
 if (hasIO && !reduce) {
   document.querySelectorAll(RV).forEach((el) => el.classList.add("rv"));
+  // Replays every time: an element resets once it is fully off screen, and comes back
+  // from below when scrolling down or from above (.up) when scrolling up.
   const io = new IntersectionObserver((entries) => {
-    entries.filter((e) => e.isIntersecting).forEach((e, i) => {
+    let n = 0;
+    entries.forEach((e) => {
       const el = e.target;
-      // things entering together cascade; devices keep their own CSS timing
-      if (!el.classList.contains("device")) {
-        el.style.transitionDelay = `${Math.min(i * 90, 360)}ms`;
-        el.addEventListener("transitionend", () => { el.style.transitionDelay = ""; }, { once: true });
+      if (e.intersectionRatio >= 0.12 && !el.classList.contains("in")) {
+        if (!el.classList.contains("device")) el.style.transitionDelay = `${Math.min(n++ * 90, 360)}ms`;
+        el.classList.add("in");
+      } else if (!e.isIntersecting && el.classList.contains("in")) {
+        el.style.transitionDelay = "";
+        el.classList.toggle("up", e.boundingClientRect.top < 0);
+        el.classList.remove("in");
       }
-      el.classList.add("in");
-      io.unobserve(el);
     });
-  }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
-  document.querySelectorAll(".rv").forEach((el) => io.observe(el));
+  }, { threshold: [0, 0.12] });
+  document.querySelectorAll(".rv").forEach((el) => {
+    io.observe(el);
+    el.addEventListener("transitionend", (ev) => { if (ev.target === el && el.classList.contains("in")) el.style.transitionDelay = ""; });
+  });
 
-  // sections still get .in so their chip lists can stagger in
+  // sections get .in too, so their chip lists stagger in (and again on the way back)
   const sio = new IntersectionObserver((entries) => entries.forEach((e) => {
-    if (e.isIntersecting) { e.target.classList.add("in"); sio.unobserve(e.target); }
-  }), { threshold: 0.08 });
+    e.target.classList.toggle("in", e.isIntersecting);
+  }), { threshold: 0 });
   document.querySelectorAll(".reveal").forEach((el) => sio.observe(el));
 } else {
   document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
