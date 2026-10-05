@@ -73,7 +73,7 @@ footer { padding-top: 40px; padding-bottom: 40px; color: var(--muted); font-size
 .top nav a.active { color: var(--fg); font-weight: 600; }
 .hero { position: relative; }
 .hero::before {
-  content: ""; position: absolute; inset: -40px -40px auto auto; width: 340px; height: 340px; z-index: -1;
+  content: ""; position: absolute; inset: -40px 0 auto auto; width: 340px; height: 340px; z-index: -1;
   background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 22%, transparent), transparent);
   filter: blur(10px); pointer-events: none;
 }
@@ -131,3 +131,11 @@ body { overflow-x: clip; }
   .shot, .shot:hover { transition: none; transform: none; }
   .progress { display: none; }
 }
+
+/* --- Screenshot galleries --- */
+.gallery { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-start; margin-top: 18px; }
+.gallery .shot { margin: 0; max-width: none; border-radius: 10px; flex: 1 1 300px; border: 1px solid var(--line); }
+.gallery .shot img { border-radius: 10px; }
+.gallery .shot.tall { flex: 0 1 150px; }
+.gallery .shot:only-child { flex-basis: 100%; }
+@media (max-width: 560px) { .gallery .shot.tall { flex-basis: 45%; } }
