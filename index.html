@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Julio Guachisaca — Full Stack Engineer</title>
+  <meta name="description" content="Full Stack Engineer: React, Next.js, React Native, NestJS y AWS Lambda. Arquitectura hexagonal, design systems y testing.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#top">JG</a>
+    <nav>
+      <a href="#about" data-i18n="nav.about"></a>
+      <a href="#work" data-i18n="nav.work"></a>
+      <a href="#experience" data-i18n="nav.experience"></a>
+      <a href="#contact" data-i18n="nav.contact"></a>
+    </nav>
+    <div class="controls">
+      <button id="theme" aria-label="Tema / Theme">◐</button>
+      <button id="lang" aria-label="Idioma / Language">EN</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <p class="eyebrow" data-i18n="hero.eyebrow"></p>
+      <h1>Julio Guachisaca</h1>
+      <p class="lead" data-i18n="hero.lead"></p>
+      <div class="cta">
+        <a class="btn primary" href="#work" data-i18n="hero.cta1"></a>
+        <a class="btn" href="mailto:1995juliog@gmail.com" data-i18n="hero.cta2"></a>
+        <a class="btn" href="https://github.com/Cesjul95" rel="noopener">GitHub</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2 data-i18n="about.title"></h2>
+      <p data-i18n="about.p1"></p>
+      <p data-i18n="about.p2"></p>
+      <ul class="chips" aria-label="Stack">
+        <li>React</li><li>Next.js</li><li>React Native</li><li>Expo</li><li>TypeScript</li>
+        <li>NestJS</li><li>AWS Lambda</li><li>DynamoDB</li><li>Auth0</li><li>Redux</li>
+        <li>Tailwind</li><li>Storybook</li><li>Vitest</li><li>Jest</li><li>Testing Library</li><li>MSW</li>
+      </ul>
+    </section>
+
+    <section id="work">
+      <h2 data-i18n="work.title"></h2>
+      <p class="muted" data-i18n="work.note"></p>
+
+      <article class="card">
+        <header>
+          <h3 data-i18n="kaito.title"></h3>
+          <span class="tag">Kaito Networks · 2025 →</span>
+        </header>
+        <dl>
+          <dt data-i18n="l.problem"></dt><dd data-i18n="kaito.problem"></dd>
+          <dt data-i18n="l.did"></dt><dd data-i18n="kaito.did"></dd>
+          <dt data-i18n="l.decision"></dt><dd data-i18n="kaito.decision"></dd>
+          <dt data-i18n="l.stack"></dt><dd>NestJS, AWS Lambda, DynamoDB, React, Next.js, Redux, Auth0, JWT, Vitest</dd>
+        </dl>
+      </article>
+
+      <article class="card">
+        <header>
+          <h3 data-i18n="helper.title"></h3>
+          <span class="tag">Sofkel · 2023 – 2025</span>
+        </header>
+        <dl>
+          <dt data-i18n="l.problem"></dt><dd data-i18n="helper.problem"></dd>
+          <dt data-i18n="l.did"></dt><dd data-i18n="helper.did"></dd>
+          <dt data-i18n="l.decision"></dt><dd data-i18n="helper.decision"></dd>
+          <dt data-i18n="l.stack"></dt><dd>React Native, Expo, Redux Toolkit, React Query, Storybook, Jest, MSW, Maestro</dd>
+        </dl>
+      </article>
+
+      <article class="card">
+        <header>
+          <h3 data-i18n="cedepa.title"></h3>
+          <span class="tag">Sofkel · 2023 – 2025</span>
+        </header>
+        <dl>
+          <dt data-i18n="l.problem"></dt><dd data-i18n="cedepa.problem"></dd>
+          <dt data-i18n="l.did"></dt><dd data-i18n="cedepa.did"></dd>
+          <dt data-i18n="l.decision"></dt><dd data-i18n="cedepa.decision"></dd>
+          <dt data-i18n="l.stack"></dt><dd>Next.js, React, React Query, Zustand, Tailwind, Storybook, Vitest, MSW</dd>
+        </dl>
+      </article>
+
+      <article class="card">
+        <header>
+          <h3 data-i18n="oro.title"></h3>
+          <span class="tag">OroCodigo · 2022 – 2023</span>
+        </header>
+        <dl>
+          <dt data-i18n="l.problem"></dt><dd data-i18n="oro.problem"></dd>
+          <dt data-i18n="l.did"></dt><dd data-i18n="oro.did"></dd>
+          <dt data-i18n="l.stack"></dt><dd>React Native, TypeScript, Redux-Saga, Storybook, Styled-Components, CodePush, Sentry, Jest</dd>
+        </dl>
+      </article>
+    </section>
+
+    <section id="experience">
+      <h2 data-i18n="exp.title"></h2>
+      <ol class="timeline">
+        <li><span class="when">Sep 2025 – <span data-i18n="exp.now"></span></span><strong>Full Stack Engineer (E2E)</strong> · Kaito Networks<br><span class="muted" data-i18n="exp.kaito"></span></li>
+        <li><span class="when">Mar 2023 – Sep 2025</span><strong>Frontend Engineer</strong> · Sofkel<br><span class="muted" data-i18n="exp.sofkel"></span></li>
+        <li><span class="when">Mar 2022 – Mar 2023</span><strong>Frontend Engineer</strong> · OroCodigo<br><span class="muted" data-i18n="exp.oro"></span></li>
+      </ol>
+      <h3 data-i18n="edu.title"></h3>
+      <ul class="plain">
+        <li data-i18n="edu.civil"></li>
+        <li>Epic React · Testing JavaScript — Kent C. Dodds (2022–2023)</li>
+        <li data-i18n="edu.platzi"></li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2 data-i18n="contact.title"></h2>
+      <p data-i18n="contact.p"></p>
+      <p><a class="btn primary" href="mailto:1995juliog@gmail.com">1995juliog@gmail.com</a>
+         <a class="btn" href="https://github.com/Cesjul95" rel="noopener">github.com/Cesjul95</a></p>
+    </section>
+  </main>
+
+  <footer><span>© 2026 Julio Guachisaca</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
