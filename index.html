@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="scene" aria-hidden="true"><i data-s="top"></i><i data-s="about"></i><i data-s="work"></i><i data-s="ai"></i><i data-s="experience"></i><i data-s="contact"></i></div>
   <div class="progress" aria-hidden="true"></div>
   <dialog id="lightbox"><button type="button" class="close" aria-label="Cerrar / Close">×</button><img alt=""></dialog>
   <a class="skip" href="#main" data-i18n="skip"></a>
@@ -79,13 +80,13 @@
           <dt data-i18n="l.decision"></dt><dd data-i18n="kaito.decision"></dd>
           <dt data-i18n="l.stack"></dt><dd>React, Next.js, Redux, Tailwind, Material UI, NestJS, AWS Lambda, DynamoDB, Auth0, JWT, Vitest</dd>
         </dl>
-        <div class="gallery">
-          <figure><button class="shot" type="button" data-full="assets/kaito-business.png" aria-label="Ampliar / Enlarge"><img src="assets/kaito-business.png" width="1168" height="767" loading="lazy" alt="Kaito Business web: dashboard con métricas, gráficas y un modal de términos y condiciones"></button><figcaption>Web Business</figcaption></figure>
-          <figure><button class="shot" type="button" data-full="assets/kaito-backoffice.png" aria-label="Ampliar / Enlarge"><img src="assets/kaito-backoffice.png" width="1192" height="732" loading="lazy" alt="Kaito Backoffice web: detalle de cliente con tabla de transacciones, filtros y estados"></button><figcaption>Web Backoffice</figcaption></figure>
+        <div class="stage">
+          <figure class="device laptop"><div class="lid"><button class="shot screen" type="button" data-full="assets/kaito-business.png" aria-label="Ampliar / Enlarge"><img src="assets/kaito-business.png" width="1168" height="767" loading="lazy" alt="Kaito Business web: dashboard con métricas, gráficas y un modal de términos y condiciones"></button></div><div class="base"></div><figcaption>Web Business</figcaption></figure>
+          <figure class="device monitor"><div class="panel"><button class="shot screen" type="button" data-full="assets/kaito-backoffice.png" aria-label="Ampliar / Enlarge"><img src="assets/kaito-backoffice.png" width="1192" height="732" loading="lazy" alt="Kaito Backoffice web: detalle de cliente con tabla de transacciones, filtros y estados"></button></div><div class="neck"></div><div class="foot"></div><figcaption>Web Backoffice</figcaption></figure>
         </div>
-        <div class="gallery phones">
-          <figure><button class="shot" type="button" data-full="assets/kaito-mobile-pagos.webp" aria-label="Ampliar / Enlarge"><img src="assets/kaito-mobile-pagos.webp" width="923" height="2000" loading="lazy" alt="Kaito Business PWA móvil: lista de pagos con búsqueda, filtros y tarjetas de orden"></button><figcaption>Mobile PWA Business</figcaption></figure>
-          <figure><button class="shot" type="button" data-full="assets/kaito-wallet.png" aria-label="Ampliar / Enlarge"><img src="assets/kaito-wallet.png" width="350" height="796" loading="lazy" alt="Kaito App: billetera con saldo, acciones rápidas y transacciones"></button><figcaption>Kaito App</figcaption></figure>
+        <div class="stage phones">
+          <figure class="device phone"><div class="frame"><button class="shot screen" type="button" data-full="assets/kaito-mobile-pagos.webp" aria-label="Ampliar / Enlarge"><img src="assets/kaito-mobile-pagos.webp" width="923" height="2000" loading="lazy" alt="Kaito Business PWA móvil: lista de pagos con búsqueda, filtros y tarjetas de orden"></button></div><figcaption>Mobile PWA Business</figcaption></figure>
+          <figure class="device phone"><div class="frame"><button class="shot screen" type="button" data-full="assets/kaito-wallet-screen.png" aria-label="Ampliar / Enlarge"><img src="assets/kaito-wallet-screen.png" width="340" height="787" loading="lazy" alt="Kaito App: billetera con saldo, acciones rápidas y transacciones"></button></div><figcaption>Kaito App</figcaption></figure>
         </div>
       </article>
 
@@ -100,9 +101,9 @@
           <dt data-i18n="l.decision"></dt><dd data-i18n="fin.decision"></dd>
           <dt data-i18n="l.stack"></dt><dd>React Native, Expo, TypeScript, Supabase (Auth, Realtime, Storage, RLS), Node test runner</dd>
         </dl>
-        <button class="shot" type="button" data-full="assets/finpilot-dashboard.png" aria-label="Ampliar captura / Enlarge screenshot">
-          <img src="assets/finpilot-dashboard.png" width="422" height="876" loading="lazy" alt="FinPilot: pantalla principal con Disponible Inteligente, alertas, recordatorios y presupuestos del mes">
-        </button>
+        <div class="stage single phone-one">
+          <figure class="device phone"><div class="frame"><button class="shot screen" type="button" data-full="assets/finpilot-screen.png" aria-label="Ampliar / Enlarge"><img src="assets/finpilot-screen.png" width="389" height="845" loading="lazy" alt="FinPilot: pantalla principal con Disponible Inteligente, alertas, recordatorios y presupuestos del mes"></button></div><figcaption>FinPilot</figcaption></figure>
+        </div>
         <p class="note" data-i18n="fin.private"></p>
       </article>
 
@@ -130,8 +131,8 @@
           <dt data-i18n="l.decision"></dt><dd data-i18n="cedepa.decision"></dd>
           <dt data-i18n="l.stack"></dt><dd>Next.js, React, React Query, Zustand, Tailwind, Storybook, Vitest, MSW</dd>
         </dl>
-        <div class="gallery single">
-          <figure><button class="shot" type="button" data-full="assets/cedepa-home.webp" aria-label="Ampliar / Enlarge"><img src="assets/cedepa-home.webp" width="1866" height="908" loading="lazy" alt="Cedepa: portada con promociones, buscador y filtro de marcas"></button><figcaption>Web Cedepa</figcaption></figure>
+        <div class="stage single">
+          <figure class="device laptop"><div class="lid"><button class="shot screen" type="button" data-full="assets/cedepa-home.webp" aria-label="Ampliar / Enlarge"><img src="assets/cedepa-home.webp" width="1866" height="908" loading="lazy" alt="Cedepa: portada con promociones, buscador y filtro de marcas"></button></div><div class="base"></div><figcaption>Web Cedepa</figcaption></figure>
         </div>
       </article>
 

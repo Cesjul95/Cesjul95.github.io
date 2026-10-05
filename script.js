@@ -142,33 +142,61 @@ filters.forEach((btn) => btn.addEventListener("click", () => {
 }));
 filters.forEach((b) => b.setAttribute("aria-pressed", String(b.classList.contains("on"))));
 
-// Reveal on scroll + active nav (both skipped when motion is reduced or unsupported)
+// Scroll motion: staggered reveal, per-section scene and active nav (reveal skipped with reduced motion)
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-if ("IntersectionObserver" in window && !reduce) {
-  const io = new IntersectionObserver((entries) => entries.forEach((e) => {
-    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+const hasIO = "IntersectionObserver" in window;
+const RV = "main > section:not(.hero) > h2, main > section:not(.hero) > p, main > section:not(.hero) > h3, .filters, .card, .mini, .timeline li, .plain li, .device";
+if (hasIO && !reduce) {
+  document.querySelectorAll(RV).forEach((el) => el.classList.add("rv"));
+  const io = new IntersectionObserver((entries) => {
+    entries.filter((e) => e.isIntersecting).forEach((e, i) => {
+      const el = e.target;
+      // things entering together cascade; devices keep their own CSS timing
+      if (!el.classList.contains("device")) {
+        el.style.transitionDelay = `${Math.min(i * 90, 360)}ms`;
+        el.addEventListener("transitionend", () => { el.style.transitionDelay = ""; }, { once: true });
+      }
+      el.classList.add("in");
+      io.unobserve(el);
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+  document.querySelectorAll(".rv").forEach((el) => io.observe(el));
+
+  // sections still get .in so their chip lists can stagger in
+  const sio = new IntersectionObserver((entries) => entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add("in"); sio.unobserve(e.target); }
   }), { threshold: 0.08 });
-  document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+  document.querySelectorAll(".reveal").forEach((el) => sio.observe(el));
 } else {
   document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
 }
-if ("IntersectionObserver" in window) {
+if (hasIO) {
   const links = [...document.querySelectorAll(".top nav a")];
   const spy = new IntersectionObserver((entries) => entries.forEach((e) => {
-    if (e.isIntersecting) links.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === "#" + e.target.id));
+    if (!e.isIntersecting) return;
+    document.body.dataset.sec = e.target.id;
+    links.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === "#" + e.target.id));
   }), { rootMargin: "-45% 0px -50% 0px" });
   document.querySelectorAll("main section[id]").forEach((s) => spy.observe(s));
 }
 render();
 
-// Scroll progress bar
+// Scroll progress bar + hero easing out as you leave it
 const bar = document.querySelector(".progress");
+const hero = document.querySelector(".hero");
 if (bar && !reduce) {
+  let queued = false;
   const upd = () => {
+    queued = false;
     const h = document.documentElement.scrollHeight - innerHeight;
     bar.style.transform = `scaleX(${h > 0 ? Math.min(scrollY / h, 1) : 0})`;
+    if (hero) {
+      const p = Math.min(scrollY / (hero.offsetHeight || 1), 1);
+      hero.style.opacity = String(1 - p * 0.85);
+      hero.style.transform = p ? `translateY(${(-p * 40).toFixed(1)}px) scale(${(1 - p * 0.04).toFixed(3)})` : "";
+    }
   };
-  addEventListener("scroll", upd, { passive: true });
+  addEventListener("scroll", () => { if (!queued) { queued = true; requestAnimationFrame(upd); } }, { passive: true });
   upd();
 }
 
