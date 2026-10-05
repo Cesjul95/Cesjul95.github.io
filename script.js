@@ -158,3 +158,30 @@ if ("IntersectionObserver" in window) {
   document.querySelectorAll("main section[id]").forEach((s) => spy.observe(s));
 }
 render();
+
+// Scroll progress bar
+const bar = document.querySelector(".progress");
+if (bar && !reduce) {
+  const upd = () => {
+    const h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = `scaleX(${h > 0 ? Math.min(scrollY / h, 1) : 0})`;
+  };
+  addEventListener("scroll", upd, { passive: true });
+  upd();
+}
+
+// Chip stagger index
+document.querySelectorAll(".chips").forEach((ul) => ul.querySelectorAll("li").forEach((li, i) => li.style.setProperty("--i", i)));
+if (reduce || !("IntersectionObserver" in window)) document.querySelectorAll(".chips").forEach((c) => c.classList.add("in"));
+
+// Screenshot lightbox
+const box = document.getElementById("lightbox");
+if (box && box.showModal) {
+  document.querySelectorAll(".shot").forEach((b) => b.addEventListener("click", () => {
+    const img = b.querySelector("img");
+    box.querySelector("img").src = b.dataset.full || img.src;
+    box.querySelector("img").alt = img.alt;
+    box.showModal();
+  }));
+  box.addEventListener("click", (e) => { if (e.target === box || e.target.classList.contains("close")) box.close(); });
+}

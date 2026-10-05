@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="progress" aria-hidden="true"></div>
+  <dialog id="lightbox"><button type="button" class="close" aria-label="Cerrar / Close">×</button><img alt=""></dialog>
   <a class="skip" href="#main" data-i18n="skip"></a>
   <header class="top">
     <a class="brand" href="#top" aria-label="Julio Guachisaca">JG</a>
@@ -89,6 +91,9 @@
           <dt data-i18n="l.decision"></dt><dd data-i18n="fin.decision"></dd>
           <dt data-i18n="l.stack"></dt><dd>React Native, Expo, TypeScript, Supabase (Auth, Realtime, Storage, RLS), Node test runner</dd>
         </dl>
+        <button class="shot" type="button" data-full="assets/finpilot-dashboard.png" aria-label="Ampliar captura / Enlarge screenshot">
+          <img src="assets/finpilot-dashboard.png" width="422" height="876" loading="lazy" alt="FinPilot: pantalla principal con Disponible Inteligente, alertas, recordatorios y presupuestos del mes">
+        </button>
         <p class="note" data-i18n="fin.private"></p>
       </article>
 

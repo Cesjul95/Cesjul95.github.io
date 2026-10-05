@@ -105,3 +105,29 @@ footer { padding-top: 40px; padding-bottom: 40px; color: var(--muted); font-size
 @media (max-width: 560px) { .top nav { gap: 10px; } .top nav a { font-size: .85rem; } }
 
 body { overflow-x: clip; }
+
+/* --- Motion & imagery --- */
+.progress { position: fixed; top: 0; left: 0; height: 3px; width: 100%; background: var(--accent); transform: scaleX(0); transform-origin: 0 50%; z-index: 20; }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+.hero > * { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; }
+.hero > :nth-child(2) { animation-delay: .08s; }
+.hero > :nth-child(3) { animation-delay: .16s; }
+.hero > :nth-child(4) { animation-delay: .24s; }
+.hero > :nth-child(5) { animation-delay: .32s; }
+@keyframes drift { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-18px,14px); } }
+.hero::before { animation: drift 12s ease-in-out infinite; }
+.chips li { opacity: 0; transform: translateY(6px); transition: opacity .4s ease, transform .4s ease; transition-delay: calc(var(--i, 0) * 30ms); }
+.reveal.in .chips li, .chips.in li { opacity: 1; transform: none; }
+.shot { display: block; margin: 18px auto 0; padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: 28px; max-width: 220px; transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease; box-shadow: 0 10px 30px -12px rgba(0,0,0,.35); }
+.shot img { display: block; width: 100%; height: auto; border-radius: 28px; }
+.shot:hover { transform: translateY(-6px) rotate(-1.2deg); box-shadow: 0 24px 44px -16px rgba(0,0,0,.45); }
+#lightbox { border: 0; padding: 0; background: transparent; max-width: 92vw; max-height: 92vh; overflow: visible; }
+#lightbox::backdrop { background: rgba(0,0,0,.75); backdrop-filter: blur(4px); }
+#lightbox img { display: block; max-width: 92vw; max-height: 88vh; border-radius: 16px; }
+#lightbox .close { position: absolute; top: -14px; right: -14px; width: 36px; height: 36px; border-radius: 50%; border: 0; background: var(--fg); color: var(--bg); font-size: 1.3rem; cursor: pointer; }
+@media (prefers-reduced-motion: reduce) {
+  .hero > *, .hero::before { animation: none; }
+  .chips li { opacity: 1; transform: none; transition: none; }
+  .shot, .shot:hover { transition: none; transform: none; }
+  .progress { display: none; }
+}
