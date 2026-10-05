@@ -9,6 +9,7 @@ const T = {
     "facts.3": "Unitarias, integración, E2E y accesibilidad", "facts.4t": "IA aplicada", "facts.4": "En mi flujo diario, con criterio",
     "about.title": "Sobre mí",
     "about.p1": "Soy más frontend. Empecé en React y React Native y mi trabajo favorito es la experiencia de usuario: sistemas de diseño, estados de carga y error, accesibilidad y rendimiento. Desde sep. 2025 trabajo también de extremo a extremo en módulos transaccionales de una plataforma financiera.",
+    "about.hint": "Empújalas con el cursor o con el dedo.",
     "about.p2": "Me interesa la arquitectura que permite cambiar cosas sin miedo: microfrontends y design systems en el frontend, hexagonal en el backend, y pruebas como parte del trabajo y no como un extra.",
     "work.title": "Proyectos",
     "work.note": "La mayoría son proyectos de empresas, así que no publico su código. Cuento el problema, qué hice yo y las decisiones técnicas.",
@@ -63,6 +64,7 @@ const T = {
     "facts.3": "Unit, integration, E2E and accessibility", "facts.4t": "Applied AI", "facts.4": "In my daily workflow, with judgment",
     "about.title": "About",
     "about.p1": "I lean frontend. I started with React and React Native, and my favorite work is user experience: design systems, loading and error states, accessibility and performance. Since Sep 2025 I also work end to end on transactional modules of a financial platform.",
+    "about.hint": "Push them with your cursor or finger.",
     "about.p2": "I care about architecture that lets you change things without fear: microfrontends and design systems on the frontend, hexagonal on the backend, and tests as part of the job, not an extra.",
     "work.title": "Work",
     "work.note": "Most of these are company projects, so I don't publish their code. I explain the problem, what I did and the technical decisions.",
@@ -117,7 +119,7 @@ if (!T[lang]) lang = "es";
 function render() {
   root.lang = lang;
   document.querySelectorAll("[data-i18n]").forEach((el) => { el.textContent = T[lang][el.dataset.i18n] ?? ""; });
-  document.getElementById("lang").textContent = lang === "es" ? "EN" : "ES";
+  document.querySelectorAll("#lang [data-l]").forEach((el) => el.classList.toggle("on", el.dataset.l === lang));
   safe(() => localStorage.setItem("lang", lang));
 }
 document.getElementById("lang").addEventListener("click", () => { lang = lang === "es" ? "en" : "es"; render(); });

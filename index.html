@@ -22,7 +22,7 @@
     </nav>
     <div class="controls">
       <button id="theme" aria-label="Tema / Theme">◐</button>
-      <button id="lang" aria-label="Idioma / Language">EN</button>
+      <button id="lang" class="seg" aria-label="Cambiar idioma / Change language"><span data-l="es">ES</span><span data-l="en">EN</span></button>
     </div>
   </header>
 
@@ -49,12 +49,13 @@
       <h2 data-i18n="about.title"></h2>
       <p data-i18n="about.p1"></p>
       <p data-i18n="about.p2"></p>
-      <ul class="chips" aria-label="Stack">
+      <ul class="chips skills" aria-label="Stack">
         <li class="on">React</li><li class="on">Next.js</li><li class="on">React Native</li><li class="on">Expo</li><li class="on">TypeScript</li>
         <li class="on">Tailwind</li><li class="on">Storybook</li><li class="on">Redux</li><li class="on">React Query</li>
         <li>Vitest</li><li>Jest</li><li>Testing Library</li><li>MSW</li><li>Maestro</li>
         <li>NestJS</li><li>AWS Lambda</li><li>DynamoDB</li><li>Auth0</li><li>Supabase</li>
       </ul>
+      <p class="hint" hidden data-i18n="about.hint"></p>
     </section>
 
     <section id="work" class="reveal">
@@ -198,5 +199,6 @@
 
   <footer><span>© 2026 Julio Guachisaca</span></footer>
   <script src="script.js"></script>
+  <script src="skills.js" defer></script>
 </body>
 </html>

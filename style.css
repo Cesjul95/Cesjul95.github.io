@@ -155,3 +155,15 @@ body { overflow-x: clip; }
 .ai-tools li.ai:hover .logo, .ai-tools li.ai:focus .logo { width: 18px; margin-right: 8px; opacity: 1; }
 @media (hover: none) { .ai-tools .logo { width: 18px; margin-right: 8px; opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .ai-tools .logo, .ai-tools li.ai { transition: none; } }
+
+/* --- Language switch: shows both options, current one highlighted --- */
+.controls .seg { display: inline-flex; padding: 2px; gap: 0; }
+.seg span { padding: 2px 9px; border-radius: 6px; color: var(--muted); font-weight: 600; transition: background .2s ease, color .2s ease; }
+.seg span.on { background: var(--fg); color: var(--bg); }
+
+/* --- Floating skills --- */
+.skills { position: relative; }
+.skills.physics { position: relative; display: block; margin-top: 20px; border: 1px dashed var(--line); border-radius: 16px; touch-action: pan-y; overflow: hidden; }
+.skills.physics li { position: absolute; left: 0; top: 0; margin: 0; opacity: 1; transition: border-color .2s ease; will-change: transform; user-select: none; background: var(--card); }
+.hint { margin: 8px 0 0; font-size: .85rem; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { .seg span { transition: none; } }
