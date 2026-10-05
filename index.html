@@ -79,10 +79,12 @@
           <dt data-i18n="l.stack"></dt><dd>React, Next.js, Redux, Tailwind, Material UI, NestJS, AWS Lambda, DynamoDB, Auth0, JWT, Vitest</dd>
         </dl>
         <div class="gallery">
-          <button class="shot" type="button" data-full="assets/kaito-business.png" aria-label="Ampliar / Enlarge"><img src="assets/kaito-business.png" width="1168" height="767" loading="lazy" alt="Kaito Business: dashboard con métricas, gráficas y un modal de términos y condiciones"></button>
-          <button class="shot" type="button" data-full="assets/kaito-backoffice.png" aria-label="Ampliar / Enlarge"><img src="assets/kaito-backoffice.png" width="1192" height="732" loading="lazy" alt="Kaito Backoffice: detalle de cliente con tabla de transacciones, filtros y estados"></button>
-          <button class="shot tall" type="button" data-full="assets/kaito-mobile-pagos.webp" aria-label="Ampliar / Enlarge"><img src="assets/kaito-mobile-pagos.webp" width="923" height="2000" loading="lazy" alt="Kaito Mobile: lista de pagos con búsqueda, filtros y tarjetas de orden"></button>
-          <button class="shot tall" type="button" data-full="assets/kaito-wallet.png" aria-label="Ampliar / Enlarge"><img src="assets/kaito-wallet.png" width="350" height="796" loading="lazy" alt="Kaito Mobile: billetera con saldo, acciones rápidas y transacciones"></button>
+          <figure><button class="shot" type="button" data-full="assets/kaito-business.png" aria-label="Ampliar / Enlarge"><img src="assets/kaito-business.png" width="1168" height="767" loading="lazy" alt="Kaito Business web: dashboard con métricas, gráficas y un modal de términos y condiciones"></button><figcaption>Web Business</figcaption></figure>
+          <figure><button class="shot" type="button" data-full="assets/kaito-backoffice.png" aria-label="Ampliar / Enlarge"><img src="assets/kaito-backoffice.png" width="1192" height="732" loading="lazy" alt="Kaito Backoffice web: detalle de cliente con tabla de transacciones, filtros y estados"></button><figcaption>Web Backoffice</figcaption></figure>
+        </div>
+        <div class="gallery phones">
+          <figure><button class="shot" type="button" data-full="assets/kaito-mobile-pagos.webp" aria-label="Ampliar / Enlarge"><img src="assets/kaito-mobile-pagos.webp" width="923" height="2000" loading="lazy" alt="Kaito Business PWA móvil: lista de pagos con búsqueda, filtros y tarjetas de orden"></button><figcaption>Mobile PWA Business</figcaption></figure>
+          <figure><button class="shot" type="button" data-full="assets/kaito-wallet.png" aria-label="Ampliar / Enlarge"><img src="assets/kaito-wallet.png" width="350" height="796" loading="lazy" alt="Kaito App: billetera con saldo, acciones rápidas y transacciones"></button><figcaption>Kaito App</figcaption></figure>
         </div>
       </article>
 
@@ -127,8 +129,8 @@
           <dt data-i18n="l.decision"></dt><dd data-i18n="cedepa.decision"></dd>
           <dt data-i18n="l.stack"></dt><dd>Next.js, React, React Query, Zustand, Tailwind, Storybook, Vitest, MSW</dd>
         </dl>
-        <div class="gallery">
-          <button class="shot" type="button" data-full="assets/cedepa-home.webp" aria-label="Ampliar / Enlarge"><img src="assets/cedepa-home.webp" width="1866" height="908" loading="lazy" alt="Cedepa: portada con promociones, buscador y filtro de marcas"></button>
+        <div class="gallery single">
+          <figure><button class="shot" type="button" data-full="assets/cedepa-home.webp" aria-label="Ampliar / Enlarge"><img src="assets/cedepa-home.webp" width="1866" height="908" loading="lazy" alt="Cedepa: portada con promociones, buscador y filtro de marcas"></button><figcaption>Web Cedepa</figcaption></figure>
         </div>
       </article>
 
@@ -154,8 +156,14 @@
         <div class="mini"><h3 data-i18n="ai.c.t"></h3><p data-i18n="ai.c.p"></p></div>
       </div>
       <p class="muted" data-i18n="ai.tools"></p>
-      <ul class="chips" aria-label="AI tools">
-        <li>Claude Code</li><li>OpenAI Codex</li><li>GitHub Copilot</li><li>Gemini</li><li>Qwen</li><li>Hermes</li><li>Kiro</li>
+      <ul class="chips ai-tools" aria-label="AI tools">
+        <li class="ai" tabindex="0"><span class="logo" style="--c:#D97757;--i:url(assets/ai/claude.svg)"></span>Claude Code</li>
+        <li class="ai" tabindex="0"><span class="logo" style="--i:url(assets/ai/openai.svg)"></span>OpenAI Codex</li>
+        <li class="ai" tabindex="0"><span class="logo" style="--i:url(assets/ai/githubcopilot.svg)"></span>GitHub Copilot</li>
+        <li class="ai" tabindex="0"><span class="logo" style="--c:#8E75B2;--i:url(assets/ai/googlegemini.svg)"></span>Gemini</li>
+        <li class="ai" tabindex="0"><span class="logo" style="--c:#6950EF;--i:url(assets/ai/qwen.svg)"></span>Qwen</li>
+        <li class="ai" tabindex="0"><span class="logo mono" style="--c:#6b6560">H</span>Hermes</li>
+        <li class="ai" tabindex="0"><span class="logo mono" style="--c:#9046FF">K</span>Kiro</li>
       </ul>
     </section>
 

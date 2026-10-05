@@ -133,9 +133,25 @@ body { overflow-x: clip; }
 }
 
 /* --- Screenshot galleries --- */
-.gallery { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-start; margin-top: 18px; }
-.gallery .shot { margin: 0; max-width: none; border-radius: 10px; flex: 1 1 300px; border: 1px solid var(--line); }
-.gallery .shot img { border-radius: 10px; }
-.gallery .shot.tall { flex: 0 1 150px; }
-.gallery .shot:only-child { flex-basis: 100%; }
-@media (max-width: 560px) { .gallery .shot.tall { flex-basis: 45%; } }
+.gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px; align-items: start; }
+.gallery.phones { grid-template-columns: repeat(2, minmax(0, 180px)); }
+.gallery.single { grid-template-columns: minmax(0, 560px); }
+.gallery figure { margin: 0; }
+.gallery .shot { display: block; width: 100%; max-width: none; margin: 0; aspect-ratio: 16 / 10; overflow: hidden; border-radius: 10px; border: 1px solid var(--line); box-shadow: none; }
+.gallery .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top left; border-radius: 0; }
+.gallery.single .shot img { object-position: top center; }
+.gallery.phones .shot { aspect-ratio: 9 / 19.5; }
+.gallery .shot:hover { transform: translateY(-4px); box-shadow: 0 18px 32px -16px rgba(0,0,0,.4); }
+.gallery figcaption { font-size: .85rem; color: var(--muted); margin-top: 8px; }
+@media (max-width: 560px) { .gallery { grid-template-columns: minmax(0, 1fr); } .gallery.phones { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* --- AI tool chips with logo on hover --- */
+.ai-tools li.ai { display: inline-flex; align-items: center; cursor: default; transition: border-color .2s ease, color .2s ease, background .2s ease; }
+.ai-tools .logo { display: inline-block; width: 0; height: 18px; margin-right: 0; opacity: 0; flex: none;
+  background: var(--c, currentColor); -webkit-mask: var(--i) center / contain no-repeat; mask: var(--i) center / contain no-repeat;
+  transition: width .25s cubic-bezier(.2,.7,.2,1), margin .25s ease, opacity .2s ease; }
+.ai-tools .logo.mono { -webkit-mask: none; mask: none; background: none; color: var(--c); font-weight: 800; font-size: .9rem; line-height: 18px; text-align: center; overflow: hidden; }
+.ai-tools li.ai:hover, .ai-tools li.ai:focus-visible, .ai-tools li.ai:focus { border-color: var(--c, var(--accent)); }
+.ai-tools li.ai:hover .logo, .ai-tools li.ai:focus .logo { width: 18px; margin-right: 8px; opacity: 1; }
+@media (hover: none) { .ai-tools .logo { width: 18px; margin-right: 8px; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .ai-tools .logo, .ai-tools li.ai { transition: none; } }
